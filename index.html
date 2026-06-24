@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mocacán a Pedir de Boca - Ice Cream Shop</title>
+    <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/images/logo.png" alt="Mocacán Logo" class="logo">
+                <div class="brand-text">
+                    <h1 class="brand-name">Mocacán</h1>
+                    <p class="brand-tagline">a Pedir de Boca</p>
+                </div>
+            </div>
+
+            <div class="nav-links">
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="language-toggle">
+                <button class="lang-btn active" data-lang="es">ES</button>
+                <span class="lang-separator">|</span>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title" data-text-es="Deliciosamente Natural" data-text-en="Deliciously Natural">Deliciosamente Natural</h2>
+            <p class="hero-subtitle" data-text-es="Disfruta los mejores helados, smoothies y bebidas naturales" data-text-en="Enjoy the best ice creams, smoothies and natural drinks">Disfruta los mejores helados, smoothies y bebidas naturales</p>
+            <button class="cta-button" data-text-es="Ver Menú" data-text-en="View Menu">Ver Menú</button>
+        </div>
+        <div class="hero-animation">
+            <div class="floating-element">🍦</div>
+            <div class="floating-element">🥤</div>
+            <div class="floating-element">🍓</div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="section-header">
+            <h2 data-text-es="Nuestro Menú" data-text-en="Our Menu">Nuestro Menú</h2>
+            <div class="header-underline"></div>
+        </div>
+
+        <div class="menu-grid">
+            <!-- Ice Creams Card -->
+            <div class="menu-card">
+                <div class="card-header">
+                    <h3 data-text-es="Helados" data-text-en="Ice Creams">Helados</h3>
+                    <span class="icon">🍦</span>
+                </div>
+                <div class="card-content">
+                    <ul class="item-list">
+                        <li><span class="item-name" data-text-es="Pequeño" data-text-en="Small">Pequeño</span></li>
+                        <li><span class="item-name" data-text-es="Mediano" data-text-en="Medium">Mediano</span></li>
+                        <li><span class="item-name" data-text-es="Grande" data-text-en="Large">Grande</span></li>
+                        <li><span class="item-name" data-text-es="Extra Grande" data-text-en="Extra Large">Extra Grande</span></li>
+                        <li><span class="item-name" data-text-es="Waffle Sencillo" data-text-en="Single Waffle">Waffle Sencillo</span></li>
+                        <li><span class="item-name" data-text-es="Waffle Doble" data-text-en="Double Waffle">Waffle Doble</span></li>
+                        <li><span class="item-name" data-text-es="Cono" data-text-en="Cone">Cono</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Yogurt Card -->
+            <div class="menu-card">
+                <div class="card-header">
+                    <h3 data-text-es="Yogurt" data-text-en="Yogurt">Yogurt</h3>
+                    <span class="icon">🥛</span>
+                </div>
+                <div class="card-content">
+                    <ul class="item-list">
+                        <li><span class="item-name" data-text-es="Banana Split" data-text-en="Banana Split">Banana Split</span></li>
+                        <li><span class="item-name" data-text-es="Tres Marías Ice Cream" data-text-en="Tres Marías Ice Cream">Tres Marías Ice Cream</span></li>
+                        <li><span class="item-name" data-text-es="Choco Banana" data-text-en="Choco Banana">Choco Banana</span></li>
+                        <li><span class="item-name" data-text-es="Con Frutos Secos" data-text-en="With Nuts">Con Frutos Secos</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Smoothies Card -->
+            <div class="menu-card">
+                <div class="card-header">
+                    <h3 data-text-es="Smoothies" data-text-en="Smoothies">Smoothies</h3>
+                    <span class="icon">🍓</span>
+                </div>
+                <div class="card-content">
+                    <ul class="item-list">
+                        <li><span class="item-name" data-text-es="Pequeño 12 oz" data-text-en="Small 12 oz">Pequeño 12 oz</span></li>
+                        <li><span class="item-name" data-text-es="Grande 16 oz" data-text-en="Large 16 oz">Grande 16 oz</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Fresh Fruit Waters Card -->
+            <div class="menu-card">
+                <div class="card-header">
+                    <h3 data-text-es="Aguas Frescas" data-text-en="Fresh Fruit Waters">Aguas Frescas</h3>
+                    <span class="icon">💧</span>
+                </div>
+                <div class="card-content">
+                    <ul class="item-list">
+                        <li><span class="item-name" data-text-es="Jamaica" data-text-en="Jamaica">Jamaica</span></li>
+                        <li><span class="item-name" data-text-es="Sandía" data-text-en="Watermelon">Sandía</span></li>
+                        <li><span class="item-name" data-text-es="Horchata" data-text-en="Horchata">Horchata</span></li>
+                        <li><span class="item-name" data-text-es="Piña Colada" data-text-en="Piña Colada">Piña Colada</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Popsicles Card -->
+            <div class="menu-card">
+                <div class="card-header">
+                    <h3 data-text-es="Paletas" data-text-en="Popsicles">Paletas</h3>
+                    <span class="icon">🍊</span>
+                </div>
+                <div class="card-content">
+                    <ul class="item-list">
+                        <li><span class="item-name" data-text-es="Paleta de Agua" data-text-en="Water Popsicle">Paleta de Agua</span></li>
+                        <li><span class="item-name" data-text-es="Paleta de Crema" data-text-en="Cream Popsicle">Paleta de Crema</span></li>
+                        <li><span class="item-name" data-text-es="Paleta Rellena" data-text-en="Filled Popsicle">Paleta Rellena</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Snacks Card -->
+            <div class="menu-card">
+                <div class="card-header">
+                    <h3 data-text-es="Snacks" data-text-en="Snacks">Snacks</h3>
+                    <span class="icon">🥒</span>
+                </div>
+                <div class="card-content">
+                    <ul class="item-list">
+                        <li><span class="item-name" data-text-es="Chicharrones" data-text-en="Pork Rinds">Chicharrones</span></li>
+                        <li><span class="item-name" data-text-es="Elote Loco" data-text-en="Crazy Corn">Elote Loco</span></li>
+                        <li><span class="item-name" data-text-es="Tostitos" data-text-en="Tostitos">Tostitos</span></li>
+                        <li><span class="item-name" data-text-es="Chamoys" data-text-en="Chamoys">Chamoys</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="section-header">
+            <h2 data-text-es="Sobre Nosotros" data-text-en="About Us">Sobre Nosotros</h2>
+            <div class="header-underline"></div>
+        </div>
+
+        <div class="about-content">
+            <div class="about-text">
+                <h3 data-text-es="Calidad y Sabor Natural" data-text-en="Quality and Natural Taste">Calidad y Sabor Natural</h3>
+                <p data-text-es="En Mocacán a Pedir de Boca, nos dedicamos a crear las mejores experiencias gastronómicas con ingredientes naturales y frescos. Cada producto es cuidadosamente elaborado para garantizar la máxima calidad y sabor." data-text-en="At Mocacán a Pedir de Boca, we are dedicated to creating the best culinary experiences with natural and fresh ingredients. Each product is carefully crafted to guarantee maximum quality and flavor.">En Mocacán a Pedir de Boca, nos dedicamos a crear las mejores experiencias gastronómicas con ingredientes naturales y frescos. Cada producto es cuidadosamente elaborado para garantizar la máxima calidad y sabor.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="section-header">
+            <h2 data-text-es="Contacto" data-text-en="Contact">Contacto</h2>
+            <div class="header-underline"></div>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-card">
+                <span class="contact-icon">📍</span>
+                <h4 data-text-es="Ubicación" data-text-en="Location">Ubicación</h4>
+                <p data-text-es="Tu Ciudad, Tu País" data-text-en="Your City, Your Country">Tu Ciudad, Tu País</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">📱</span>
+                <h4 data-text-es="Teléfono" data-text-en="Phone">Teléfono</h4>
+                <p>+1 (XXX) XXX-XXXX</p>
+            </div>
+            <div class="contact-card">
+                <span class="contact-icon">✉️</span>
+                <h4 data-text-es="Email" data-text-en="Email">Email</h4>
+                <p>info@mojacan.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p data-text-es="© 2024 Mocacán a Pedir de Boca. Todos los derechos reservados." data-text-en="© 2024 Mocacán a Pedir de Boca. All rights reserved.">© 2024 Mocacán a Pedir de Boca. Todos los derechos reservados.</p>
+        <p data-text-es="Hecho con ❤️ y 🍦" data-text-en="Made with ❤️ and 🍦">Hecho con ❤️ y 🍦</p>
+    </footer>
+
+    <script src="assets/script.js"></script>
+</body>
+</html>
