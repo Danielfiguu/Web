@@ -1,117 +1,153 @@
-// Language Management
-const languageToggle = {
-    currentLang: localStorage.getItem('language') || 'es',
+/* ============================================================
+   Mocacán a Pedir de Boca — interactions
+   ============================================================ */
 
-    init() {
-        this.setLanguage(this.currentLang);
-        this.attachListeners();
-    },
+(function () {
+    "use strict";
 
-    attachListeners() {
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const lang = e.target.getAttribute('data-lang');
-                this.setLanguage(lang);
-            });
+    /* ---------- Language toggle (ES / EN) ---------- */
+    const LANG_KEY = "mocacan-lang";
+    const langButtons = document.querySelectorAll(".lang-btn");
+    const langPill = document.getElementById("langPill");
+
+    function applyLang(lang) {
+        document.querySelectorAll("[data-" + lang + "]").forEach(function (el) {
+            const val = el.getAttribute("data-" + lang);
+            if (val !== null) el.textContent = val;
         });
-    },
-
-    setLanguage(lang) {
-        this.currentLang = lang;
-        localStorage.setItem('language', lang);
-
-        // Update all translatable elements
-        document.querySelectorAll('[data-text-es][data-text-en]').forEach(element => {
-            const text = element.getAttribute(`data-text-${lang}`);
-            if (text) {
-                element.textContent = text;
-            }
-        });
-
-        // Update active button
-        document.querySelectorAll('.lang-btn').forEach(btn => {
-            btn.classList.remove('active');
-            if (btn.getAttribute('data-lang') === lang) {
-                btn.classList.add('active');
-            }
-        });
-
-        // Update page language attribute
         document.documentElement.lang = lang;
+
+        langButtons.forEach(function (btn, i) {
+            const active = btn.dataset.lang === lang;
+            btn.classList.toggle("active", active);
+            if (active && langPill) {
+                langPill.style.transform = "translateX(" + (btn.offsetLeft - 4) + "px)";
+                langPill.style.width = btn.offsetWidth + "px";
+            }
+        });
     }
-};
 
-// Initialize language toggle
-document.addEventListener('DOMContentLoaded', () => {
-    languageToggle.init();
-
-    // Add smooth scroll to CTA button
-    document.querySelectorAll('.cta-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const menuSection = document.getElementById('menu');
-            if (menuSection) {
-                menuSection.scrollIntoView({ behavior: 'smooth' });
-            }
-        });
-    });
-
-    // Add intersection observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = getComputedStyle(entry.target).animation;
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe all menu cards and cards
-    document.querySelectorAll('.menu-card, .contact-card, .about-content').forEach(element => {
-        observer.observe(element);
-    });
-});
-
-// Smooth scroll to sections
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+    function setLang(lang, animate) {
+        localStorage.setItem(LANG_KEY, lang);
+        if (animate) {
+            document.body.classList.add("lang-fading");
+            setTimeout(function () {
+                applyLang(lang);
+                document.body.classList.remove("lang-fading");
+            }, 220);
+        } else {
+            applyLang(lang);
         }
-    });
-});
-
-// Add scroll animation for nav items
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (window.scrollY > 50) {
-        navbar.style.boxShadow = '0 15px 35px rgba(233, 30, 99, 0.25)';
-    } else {
-        navbar.style.boxShadow = '0 10px 30px rgba(233, 30, 99, 0.15)';
     }
-});
 
-// Enhanced hover effects for menu items
-document.querySelectorAll('.item-list li').forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateX(5px)';
+    langButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+            if (!btn.classList.contains("active")) setLang(btn.dataset.lang, true);
+        });
     });
 
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateX(0)';
-    });
-});
+    const savedLang = localStorage.getItem(LANG_KEY) || "es";
+    // run after layout so pill positions correctly
+    window.addEventListener("load", function () { applyLang(savedLang); });
+    applyLang(savedLang);
 
-// Prevent animation flicker on page load
-window.addEventListener('load', () => {
-    document.body.style.opacity = '1';
-});
+    /* ---------- Nav: scrolled state + progress ---------- */
+    const nav = document.getElementById("nav");
+    const progress = document.getElementById("scrollProgress");
+
+    function onScroll() {
+        const y = window.scrollY;
+        nav.classList.toggle("scrolled", y > 40);
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        if (progress) progress.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+
+    /* ---------- Mobile menu ---------- */
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    if (navToggle) {
+        navToggle.addEventListener("click", function () {
+            navToggle.classList.toggle("open");
+            navLinks.classList.toggle("open");
+        });
+        navLinks.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+                navToggle.classList.remove("open");
+                navLinks.classList.remove("open");
+            });
+        });
+    }
+
+    /* ---------- Reveal on scroll ---------- */
+    const reveals = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry, idx) {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const siblings = Array.prototype.slice.call(
+                        el.parentNode.querySelectorAll(":scope > .reveal")
+                    );
+                    const pos = siblings.indexOf(el);
+                    el.style.transitionDelay = (pos > 0 ? Math.min(pos, 6) * 0.07 : 0) + "s";
+                    el.classList.add("in");
+                    io.unobserve(el);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+        reveals.forEach(function (el) { io.observe(el); });
+    } else {
+        reveals.forEach(function (el) { el.classList.add("in"); });
+    }
+
+    /* ---------- Bento pointer glow ---------- */
+    document.querySelectorAll(".tile").forEach(function (tile) {
+        tile.addEventListener("pointermove", function (e) {
+            const r = tile.getBoundingClientRect();
+            tile.style.setProperty("--mx", (e.clientX - r.left) + "px");
+            tile.style.setProperty("--my", (e.clientY - r.top) + "px");
+        });
+    });
+
+    /* ---------- Lightbox ---------- */
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, alt) {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "";
+        lightbox.classList.add("open");
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+    }
+    function closeLightbox() {
+        lightbox.classList.remove("open");
+        lightbox.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+    }
+    document.querySelectorAll(".shot").forEach(function (shot) {
+        shot.addEventListener("click", function () {
+            const img = shot.querySelector("img");
+            openLightbox(shot.dataset.full, img ? img.alt : "");
+        });
+    });
+    if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+    if (lightbox) lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && lightbox.classList.contains("open")) closeLightbox();
+    });
+
+    /* ---------- Hero parallax on logo ---------- */
+    const heroLogo = document.querySelector(".hero-logo");
+    if (heroLogo && window.matchMedia("(pointer:fine)").matches) {
+        window.addEventListener("scroll", function () {
+            const y = Math.min(window.scrollY, 600);
+            heroLogo.style.transform = "translateY(" + y * 0.12 + "px)";
+        }, { passive: true });
+    }
+})();

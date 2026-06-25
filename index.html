@@ -3,201 +3,327 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mocacán a Pedir de Boca - Ice Cream Shop</title>
+    <title>Mocacán a Pedir de Boca — Ice Cream Shop</title>
+    <meta name="description" content="Mocacán a Pedir de Boca · Deliciosamente Natural. Helados, mangonadas, bionicos, aguas frescas y antojitos mexicanos.">
+    <link rel="icon" type="image/png" href="assets/images/logo_mark.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="logo-container">
-                <img src="assets/images/logo.png" alt="Mocacán Logo" class="logo">
-                <div class="brand-text">
-                    <h1 class="brand-name">Mocacán</h1>
-                    <p class="brand-tagline">a Pedir de Boca</p>
+    <!-- Scroll progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-brand">
+                <img src="assets/images/logo_mark.png" alt="Mocacán" class="nav-logo">
+                <span class="nav-brand-text">Mocacán</span>
+            </a>
+
+            <div class="nav-links" id="navLinks">
+                <a href="#menu" class="nav-link" data-es="Menú" data-en="Menu">Menú</a>
+                <a href="#showcase" class="nav-link" data-es="Galería" data-en="Gallery">Galería</a>
+                <a href="#about" class="nav-link" data-es="Nosotros" data-en="About">Nosotros</a>
+                <a href="#contact" class="nav-link" data-es="Contacto" data-en="Contact">Contacto</a>
+            </div>
+
+            <div class="nav-right">
+                <div class="lang-switch" role="group" aria-label="Language">
+                    <button class="lang-btn active" data-lang="es">ES</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                    <span class="lang-pill" id="langPill"></span>
                 </div>
-            </div>
-
-            <div class="nav-links">
-                <a href="#menu" class="nav-link">Menu</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
-
-            <div class="language-toggle">
-                <button class="lang-btn active" data-lang="es">ES</button>
-                <span class="lang-separator">|</span>
-                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                    <span></span><span></span>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="hero-glow glow-a"></div>
+        <div class="hero-glow glow-b"></div>
+        <div class="hero-grid"></div>
+
         <div class="hero-content">
-            <h2 class="hero-title" data-text-es="Deliciosamente Natural" data-text-en="Deliciously Natural">Deliciosamente Natural</h2>
-            <p class="hero-subtitle" data-text-es="Disfruta los mejores helados, smoothies y bebidas naturales" data-text-en="Enjoy the best ice creams, smoothies and natural drinks">Disfruta los mejores helados, smoothies y bebidas naturales</p>
-            <button class="cta-button" data-text-es="Ver Menú" data-text-en="View Menu">Ver Menú</button>
+            <p class="hero-eyebrow reveal" data-es="Michoacán a Pedir de Boca" data-en="Michoacán a Pedir de Boca">Michoacán a Pedir de Boca</p>
+            <img src="assets/images/logo_full.png" alt="Mocacán Ice Cream Shop" class="hero-logo reveal">
+            <h1 class="hero-title reveal">
+                <span class="line" data-es="Deliciosamente" data-en="Deliciously">Deliciosamente</span>
+                <span class="line gradient-text" data-es="Natural." data-en="Natural.">Natural.</span>
+            </h1>
+            <p class="hero-sub reveal" data-es="Helados artesanales, mangonadas, bionicos y antojitos mexicanos. Hechos frescos, servidos con amor." data-en="Artisan ice cream, mangonadas, bionicos and Mexican treats. Made fresh, served with love.">Helados artesanales, mangonadas, bionicos y antojitos mexicanos. Hechos frescos, servidos con amor.</p>
+            <div class="hero-cta reveal">
+                <a href="#menu" class="btn btn-primary" data-es="Ver el menú" data-en="Explore the menu">Ver el menú</a>
+                <a href="#contact" class="btn btn-ghost" data-es="Visítanos" data-en="Visit us">Visítanos</a>
+            </div>
         </div>
-        <div class="hero-animation">
-            <div class="floating-element">🍦</div>
-            <div class="floating-element">🥤</div>
-            <div class="floating-element">🍓</div>
+
+        <div class="hero-scroll" aria-hidden="true">
+            <span class="mouse"></span>
+        </div>
+    </header>
+
+    <!-- Statement -->
+    <section class="statement">
+        <p class="statement-text reveal">
+            <span data-es="Sabor que se siente." data-en="Flavor you can feel.">Sabor que se siente.</span>
+            <span class="muted" data-es="Ingredientes reales, sin atajos." data-en="Real ingredients, no shortcuts.">Ingredientes reales, sin atajos.</span>
+        </p>
+    </section>
+
+    <!-- Menu (Bento) -->
+    <section id="menu" class="menu">
+        <div class="section-head reveal">
+            <span class="kicker" data-es="El Menú" data-en="The Menu">El Menú</span>
+            <h2 class="section-title" data-es="Todo lo que se te antoje." data-en="Everything you crave.">Todo lo que se te antoje.</h2>
+        </div>
+
+        <div class="bento">
+            <!-- Ice Cream (large) -->
+            <article class="tile tile-lg reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 9a4 4 0 1 1 8 0"/><path d="M7 9h10l-4.2 11a.9.9 0 0 1-1.6 0L7 9Z"/></svg>
+                    </span>
+                    <span class="tile-count">7</span>
+                </div>
+                <h3 class="tile-title" data-es="Helados" data-en="Ice Creams">Helados</h3>
+                <p class="tile-desc" data-es="Cremosos y naturales, en cono o vaso." data-en="Creamy and natural, in cone or cup.">Cremosos y naturales, en cono o vaso.</p>
+                <ul class="tile-list">
+                    <li data-es="Pequeño · Mediano · Grande" data-en="Small · Medium · Large">Pequeño · Mediano · Grande</li>
+                    <li data-es="Extra Grande · Litro" data-en="Extra Large · Liter">Extra Grande · Litro</li>
+                    <li data-es="Waffle sencillo o doble" data-en="Single or double waffle">Waffle sencillo o doble</li>
+                    <li data-es="Cono de azúcar" data-en="Sugar cone">Cono de azúcar</li>
+                </ul>
+            </article>
+
+            <!-- Yogurt & Parfaits -->
+            <article class="tile reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 8h10l-1 11a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2L7 8Z"/><path d="M7 8c0-2 2-3 5-3s5 1 5 3"/></svg>
+                    </span>
+                </div>
+                <h3 class="tile-title" data-es="Yogurt & Parfaits" data-en="Yogurt & Parfaits">Yogurt & Parfaits</h3>
+                <ul class="tile-list">
+                    <li data-es="Banana Split" data-en="Banana Split">Banana Split</li>
+                    <li data-es="Tres Marías" data-en="Tres Marías">Tres Marías</li>
+                    <li data-es="Choco Banana" data-en="Choco Banana">Choco Banana</li>
+                    <li data-es="Con frutos secos" data-en="With nuts">Con frutos secos</li>
+                </ul>
+            </article>
+
+            <!-- Smoothies & Shakes -->
+            <article class="tile reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 10h8l-1 9a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2l-1-9Z"/><path d="M9 10a3 3 0 0 1 6 0"/><path d="M14 3l-2 4"/></svg>
+                    </span>
+                </div>
+                <h3 class="tile-title" data-es="Smoothies & Malteadas" data-en="Smoothies & Shakes">Smoothies & Malteadas</h3>
+                <ul class="tile-list">
+                    <li data-es="Smoothie 12 oz · 16 oz" data-en="Smoothie 12 oz · 16 oz">Smoothie 12 oz · 16 oz</li>
+                    <li data-es="Malteadas cremosas" data-en="Creamy milkshakes">Malteadas cremosas</li>
+                    <li data-es="Fresa, mango, chocolate" data-en="Strawberry, mango, chocolate">Fresa, mango, chocolate</li>
+                </ul>
+            </article>
+
+            <!-- Mangonadas (wide, accent) -->
+            <article class="tile tile-wide tile-accent reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 9h10l-1.2 10a2 2 0 0 1-2 1.8h-3.6a2 2 0 0 1-2-1.8L7 9Z"/><path d="M9 9c0-2.5 6-2.5 6 0"/><path d="M15 4c1.8.4 2.7 1.7 2.2 3.3"/></svg>
+                    </span>
+                    <span class="tile-tag" data-es="Favorito" data-en="Favorite">Favorito</span>
+                </div>
+                <h3 class="tile-title" data-es="Mangonadas & Escamochas" data-en="Mangonadas & Escamochas">Mangonadas & Escamochas</h3>
+                <p class="tile-desc" data-es="Lo más pedido. Fruta, chamoy y chile." data-en="Most ordered. Fruit, chamoy and chili.">Lo más pedido. Fruta, chamoy y chile.</p>
+                <ul class="price-list">
+                    <li><span data-es="Mangonada · Pequeña" data-en="Mangonada · Small">Mangonada · Pequeña</span><b>$7.45</b></li>
+                    <li><span data-es="Mangonada · Mediana" data-en="Mangonada · Medium">Mangonada · Mediana</span><b>$9.45</b></li>
+                    <li><span data-es="Mangonada · Grande" data-en="Mangonada · Large">Mangonada · Grande</span><b>$11.45</b></li>
+                    <li><span data-es="Escamocha · 12 / 16 / 20 oz" data-en="Escamocha · 12 / 16 / 20 oz">Escamocha · 12 / 16 / 20 oz</span><b>$6.75+</b></li>
+                </ul>
+            </article>
+
+            <!-- Bionicos / Fruit Cocktail -->
+            <article class="tile reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 11a7 7 0 0 0 14 0"/><path d="M5 11h14"/><path d="M12 11V4"/><path d="M9 7c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg>
+                    </span>
+                </div>
+                <h3 class="tile-title" data-es="Bionicos & Cóctel" data-en="Bionicos & Cocktail">Bionicos & Cóctel</h3>
+                <ul class="price-list">
+                    <li><span data-es="Bionico" data-en="Bionico">Bionico</span><b>$8.99</b></li>
+                    <li><span data-es="Cóctel de fruta · M" data-en="Fruit cocktail · M">Cóctel de fruta · M</span><b>$8.00</b></li>
+                    <li><span data-es="Cóctel de fruta · L" data-en="Fruit cocktail · L">Cóctel de fruta · L</span><b>$12.00</b></li>
+                </ul>
+            </article>
+
+            <!-- Aguas Frescas -->
+            <article class="tile reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11Z"/></svg>
+                    </span>
+                </div>
+                <h3 class="tile-title" data-es="Aguas Frescas" data-en="Fresh Waters">Aguas Frescas</h3>
+                <ul class="tile-list">
+                    <li data-es="Jamaica · Horchata" data-en="Jamaica · Horchata">Jamaica · Horchata</li>
+                    <li data-es="Sandía · Piña" data-en="Watermelon · Pineapple">Sandía · Piña</li>
+                    <li data-es="Agua embotellada" data-en="Bottled water">Agua embotellada</li>
+                </ul>
+            </article>
+
+            <!-- Paletas -->
+            <article class="tile reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="3" width="10" height="13" rx="5"/><path d="M12 16v5"/></svg>
+                    </span>
+                </div>
+                <h3 class="tile-title" data-es="Paletas" data-en="Popsicles">Paletas</h3>
+                <ul class="tile-list">
+                    <li data-es="De agua" data-en="Water based">De agua</li>
+                    <li data-es="De crema" data-en="Cream based">De crema</li>
+                    <li data-es="Gourmet · Esquimales" data-en="Gourmet · Esquimales">Gourmet · Esquimales</li>
+                </ul>
+            </article>
+
+            <!-- Antojitos (wide) -->
+            <article class="tile tile-wide reveal">
+                <div class="tile-top">
+                    <span class="tile-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16l-1.5 12.5a1.5 1.5 0 0 1-1.5 1.3H7a1.5 1.5 0 0 1-1.5-1.3L4 7Z"/><path d="M4 7l2-3h12l2 3"/></svg>
+                    </span>
+                    <span class="tile-tag" data-es="Antojo" data-en="Snacks">Antojo</span>
+                </div>
+                <h3 class="tile-title" data-es="Antojitos & Snacks Locos" data-en="Snacks & Crazy Treats">Antojitos & Snacks Locos</h3>
+                <p class="tile-desc" data-es="Para los que les gusta lo salado y picosito." data-en="For those who love it salty and spicy.">Para los que les gusta lo salado y picosito.</p>
+                <div class="tag-cloud">
+                    <span data-es="Dorilocos" data-en="Dorilocos">Dorilocos</span>
+                    <span data-es="Tostiesquites" data-en="Tostiesquites">Tostiesquites</span>
+                    <span data-es="Esquites" data-en="Corn Cups">Esquites</span>
+                    <span data-es="Chicharrones" data-en="Pork Rinds">Chicharrones</span>
+                    <span data-es="Nachos con queso" data-en="Cheese Nachos">Nachos con queso</span>
+                    <span data-es="Pepinos Locos" data-en="Crazy Cucumbers">Pepinos Locos</span>
+                    <span data-es="Chips & Takis" data-en="Chips & Takis">Chips & Takis</span>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Menu Section -->
-    <section id="menu" class="menu-section">
-        <div class="section-header">
-            <h2 data-text-es="Nuestro Menú" data-text-en="Our Menu">Nuestro Menú</h2>
-            <div class="header-underline"></div>
+    <!-- Showcase / Gallery -->
+    <section id="showcase" class="showcase">
+        <div class="section-head reveal">
+            <span class="kicker light" data-es="Galería" data-en="Gallery">Galería</span>
+            <h2 class="section-title light" data-es="El menú completo." data-en="The full menu.">El menú completo.</h2>
+            <p class="section-lead" data-es="Explora cada tablero. Toca para ampliar." data-en="Browse every board. Tap to enlarge.">Explora cada tablero. Toca para ampliar.</p>
         </div>
 
-        <div class="menu-grid">
-            <!-- Ice Creams Card -->
-            <div class="menu-card">
-                <div class="card-header">
-                    <h3 data-text-es="Helados" data-text-en="Ice Creams">Helados</h3>
-                    <span class="icon">🍦</span>
-                </div>
-                <div class="card-content">
-                    <ul class="item-list">
-                        <li><span class="item-name" data-text-es="Pequeño" data-text-en="Small">Pequeño</span></li>
-                        <li><span class="item-name" data-text-es="Mediano" data-text-en="Medium">Mediano</span></li>
-                        <li><span class="item-name" data-text-es="Grande" data-text-en="Large">Grande</span></li>
-                        <li><span class="item-name" data-text-es="Extra Grande" data-text-en="Extra Large">Extra Grande</span></li>
-                        <li><span class="item-name" data-text-es="Waffle Sencillo" data-text-en="Single Waffle">Waffle Sencillo</span></li>
-                        <li><span class="item-name" data-text-es="Waffle Doble" data-text-en="Double Waffle">Waffle Doble</span></li>
-                        <li><span class="item-name" data-text-es="Cono" data-text-en="Cone">Cono</span></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="gallery">
+            <button class="shot reveal" data-full="assets/images/menu1.png">
+                <img src="assets/images/menu1.png" alt="Helados, yogurt, rusas y malteadas" loading="lazy">
+                <span class="shot-label" data-es="Helados & Postres" data-en="Ice Cream & Desserts">Helados & Postres</span>
+            </button>
+            <button class="shot reveal" data-full="assets/images/menu2.png">
+                <img src="assets/images/menu2.png" alt="Helados, paletas, smoothies y aguas" loading="lazy">
+                <span class="shot-label" data-es="Paletas & Bebidas" data-en="Popsicles & Drinks">Paletas & Bebidas</span>
+            </button>
+            <button class="shot reveal" data-full="assets/images/menu3.png">
+                <img src="assets/images/menu3.png" alt="Mangonadas, escamochas, bionicos" loading="lazy">
+                <span class="shot-label" data-es="Mangonadas & Bionicos" data-en="Mangonadas & Bionicos">Mangonadas & Bionicos</span>
+            </button>
+            <button class="shot reveal" data-full="assets/images/menu4.png">
+                <img src="assets/images/menu4.png" alt="Dorilocos, tostiesquites, nachos" loading="lazy">
+                <span class="shot-label" data-es="Antojitos & Snacks" data-en="Snacks & Treats">Antojitos & Snacks</span>
+            </button>
+        </div>
+    </section>
 
-            <!-- Yogurt Card -->
-            <div class="menu-card">
-                <div class="card-header">
-                    <h3 data-text-es="Yogurt" data-text-en="Yogurt">Yogurt</h3>
-                    <span class="icon">🥛</span>
-                </div>
-                <div class="card-content">
-                    <ul class="item-list">
-                        <li><span class="item-name" data-text-es="Banana Split" data-text-en="Banana Split">Banana Split</span></li>
-                        <li><span class="item-name" data-text-es="Tres Marías Ice Cream" data-text-en="Tres Marías Ice Cream">Tres Marías Ice Cream</span></li>
-                        <li><span class="item-name" data-text-es="Choco Banana" data-text-en="Choco Banana">Choco Banana</span></li>
-                        <li><span class="item-name" data-text-es="Con Frutos Secos" data-text-en="With Nuts">Con Frutos Secos</span></li>
-                    </ul>
-                </div>
+    <!-- About -->
+    <section id="about" class="about">
+        <div class="about-head reveal">
+            <span class="kicker" data-es="Nosotros" data-en="About">Nosotros</span>
+            <h2 class="about-title" data-es="Una probadita de Michoacán, hecha a pedir de boca." data-en="A taste of Michoacán, made just right.">Una probadita de Michoacán, hecha a pedir de boca.</h2>
+        </div>
+        <div class="values">
+            <div class="value reveal">
+                <span class="value-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 20C6 20 4 16 4 12c5 0 7 2 7 6"/><path d="M13 20c0-7 3-11 7-12 0 6-2 12-7 12Z"/></svg>
+                </span>
+                <h3 data-es="100% Natural" data-en="100% Natural">100% Natural</h3>
+                <p data-es="Fruta de verdad e ingredientes frescos en cada orden." data-en="Real fruit and fresh ingredients in every order.">Fruta de verdad e ingredientes frescos en cada orden.</p>
             </div>
-
-            <!-- Smoothies Card -->
-            <div class="menu-card">
-                <div class="card-header">
-                    <h3 data-text-es="Smoothies" data-text-en="Smoothies">Smoothies</h3>
-                    <span class="icon">🍓</span>
-                </div>
-                <div class="card-content">
-                    <ul class="item-list">
-                        <li><span class="item-name" data-text-es="Pequeño 12 oz" data-text-en="Small 12 oz">Pequeño 12 oz</span></li>
-                        <li><span class="item-name" data-text-es="Grande 16 oz" data-text-en="Large 16 oz">Grande 16 oz</span></li>
-                    </ul>
-                </div>
+            <div class="value reveal">
+                <span class="value-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M2 12h20M5 5l14 14M19 5 5 19"/></svg>
+                </span>
+                <h3 data-es="Siempre Fresco" data-en="Always Fresh">Siempre Fresco</h3>
+                <p data-es="Preparado al momento, justo como te gusta." data-en="Prepared to order, just the way you like it.">Preparado al momento, justo como te gusta.</p>
             </div>
-
-            <!-- Fresh Fruit Waters Card -->
-            <div class="menu-card">
-                <div class="card-header">
-                    <h3 data-text-es="Aguas Frescas" data-text-en="Fresh Fruit Waters">Aguas Frescas</h3>
-                    <span class="icon">💧</span>
-                </div>
-                <div class="card-content">
-                    <ul class="item-list">
-                        <li><span class="item-name" data-text-es="Jamaica" data-text-en="Jamaica">Jamaica</span></li>
-                        <li><span class="item-name" data-text-es="Sandía" data-text-en="Watermelon">Sandía</span></li>
-                        <li><span class="item-name" data-text-es="Horchata" data-text-en="Horchata">Horchata</span></li>
-                        <li><span class="item-name" data-text-es="Piña Colada" data-text-en="Piña Colada">Piña Colada</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Popsicles Card -->
-            <div class="menu-card">
-                <div class="card-header">
-                    <h3 data-text-es="Paletas" data-text-en="Popsicles">Paletas</h3>
-                    <span class="icon">🍊</span>
-                </div>
-                <div class="card-content">
-                    <ul class="item-list">
-                        <li><span class="item-name" data-text-es="Paleta de Agua" data-text-en="Water Popsicle">Paleta de Agua</span></li>
-                        <li><span class="item-name" data-text-es="Paleta de Crema" data-text-en="Cream Popsicle">Paleta de Crema</span></li>
-                        <li><span class="item-name" data-text-es="Paleta Rellena" data-text-en="Filled Popsicle">Paleta Rellena</span></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Snacks Card -->
-            <div class="menu-card">
-                <div class="card-header">
-                    <h3 data-text-es="Snacks" data-text-en="Snacks">Snacks</h3>
-                    <span class="icon">🥒</span>
-                </div>
-                <div class="card-content">
-                    <ul class="item-list">
-                        <li><span class="item-name" data-text-es="Chicharrones" data-text-en="Pork Rinds">Chicharrones</span></li>
-                        <li><span class="item-name" data-text-es="Elote Loco" data-text-en="Crazy Corn">Elote Loco</span></li>
-                        <li><span class="item-name" data-text-es="Tostitos" data-text-en="Tostitos">Tostitos</span></li>
-                        <li><span class="item-name" data-text-es="Chamoys" data-text-en="Chamoys">Chamoys</span></li>
-                    </ul>
-                </div>
+            <div class="value reveal">
+                <span class="value-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+                </span>
+                <h3 data-es="Sabor Mexicano" data-en="Mexican Flavor">Sabor Mexicano</h3>
+                <p data-es="Recetas auténticas que saben a casa." data-en="Authentic recipes that taste like home.">Recetas auténticas que saben a casa.</p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
-        <div class="section-header">
-            <h2 data-text-es="Sobre Nosotros" data-text-en="About Us">Sobre Nosotros</h2>
-            <div class="header-underline"></div>
-        </div>
-
-        <div class="about-content">
-            <div class="about-text">
-                <h3 data-text-es="Calidad y Sabor Natural" data-text-en="Quality and Natural Taste">Calidad y Sabor Natural</h3>
-                <p data-text-es="En Mocacán a Pedir de Boca, nos dedicamos a crear las mejores experiencias gastronómicas con ingredientes naturales y frescos. Cada producto es cuidadosamente elaborado para garantizar la máxima calidad y sabor." data-text-en="At Mocacán a Pedir de Boca, we are dedicated to creating the best culinary experiences with natural and fresh ingredients. Each product is carefully crafted to guarantee maximum quality and flavor.">En Mocacán a Pedir de Boca, nos dedicamos a crear las mejores experiencias gastronómicas con ingredientes naturales y frescos. Cada producto es cuidadosamente elaborado para garantizar la máxima calidad y sabor.</p>
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="contact-glow"></div>
+        <div class="contact-inner">
+            <div class="section-head reveal">
+                <span class="kicker light" data-es="Contacto" data-en="Contact">Contacto</span>
+                <h2 class="section-title light" data-es="Pásate a probar." data-en="Come taste for yourself.">Pásate a probar.</h2>
             </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-        <div class="section-header">
-            <h2 data-text-es="Contacto" data-text-en="Contact">Contacto</h2>
-            <div class="header-underline"></div>
-        </div>
-
-        <div class="contact-content">
-            <div class="contact-card">
-                <span class="contact-icon">📍</span>
-                <h4 data-text-es="Ubicación" data-text-en="Location">Ubicación</h4>
-                <p data-text-es="Tu Ciudad, Tu País" data-text-en="Your City, Your Country">Tu Ciudad, Tu País</p>
-            </div>
-            <div class="contact-card">
-                <span class="contact-icon">📱</span>
-                <h4 data-text-es="Teléfono" data-text-en="Phone">Teléfono</h4>
-                <p>+1 (XXX) XXX-XXXX</p>
-            </div>
-            <div class="contact-card">
-                <span class="contact-icon">✉️</span>
-                <h4 data-text-es="Email" data-text-en="Email">Email</h4>
-                <p>info@mojacan.com</p>
+            <div class="contact-rows">
+                <a class="c-row reveal" href="#">
+                    <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21s-7-4.6-7-10a7 7 0 0 1 14 0c0 5.4-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+                    <span class="c-text"><b data-es="Ubicación" data-en="Location">Ubicación</b><small data-es="Tu ciudad, tu estado" data-en="Your city, your state">Tu ciudad, tu estado</small></span>
+                </a>
+                <a class="c-row reveal" href="tel:+10000000000">
+                    <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 4h3l2 5-2 1a12 12 0 0 0 5 5l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></svg></span>
+                    <span class="c-text"><b data-es="Teléfono" data-en="Phone">Teléfono</b><small>+1 (XXX) XXX-XXXX</small></span>
+                </a>
+                <a class="c-row reveal" href="mailto:hola@mocacan.com">
+                    <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span>
+                    <span class="c-text"><b data-es="Email" data-en="Email">Email</b><small>hola@mocacan.com</small></span>
+                </a>
+                <div class="c-row reveal">
+                    <span class="c-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                    <span class="c-text"><b data-es="Horario" data-en="Hours">Horario</b><small data-es="Lun–Dom · 11am – 9pm" data-en="Mon–Sun · 11am – 9pm">Lun–Dom · 11am – 9pm</small></span>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p data-text-es="© 2024 Mocacán a Pedir de Boca. Todos los derechos reservados." data-text-en="© 2024 Mocacán a Pedir de Boca. All rights reserved.">© 2024 Mocacán a Pedir de Boca. Todos los derechos reservados.</p>
-        <p data-text-es="Hecho con ❤️ y 🍦" data-text-en="Made with ❤️ and 🍦">Hecho con ❤️ y 🍦</p>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <img src="assets/images/logo_mark.png" alt="Mocacán" class="footer-logo">
+                <div>
+                    <strong>Mocacán</strong>
+                    <span data-es="a Pedir de Boca" data-en="a Pedir de Boca">a Pedir de Boca</span>
+                </div>
+            </div>
+            <p class="footer-copy" data-es="© 2026 Mocacán a Pedir de Boca. Todos los derechos reservados." data-en="© 2026 Mocacán a Pedir de Boca. All rights reserved.">© 2026 Mocacán a Pedir de Boca. Todos los derechos reservados.</p>
+        </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <img src="" alt="" id="lightboxImg">
+    </div>
 
     <script src="assets/script.js"></script>
 </body>
